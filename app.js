@@ -1,27 +1,20 @@
-alert('Boas-vindas ao jogo do número secreto');
-let numeroMaximo = 151
-let numeroSecreto = parseInt(Math.random() * numeroMaximo + 1);
-console.log(numeroSecreto);
-let chute;
-let tentativas = 1;
+let numeroSecreto = gerarNumeroAleatorio();
 
-// enquanto chute não for igual ao n.s.
-while (chute != numeroSecreto) {
-     chute = prompt(`Escolha um número entre 1 a ${numeroMaximo}`);
-     // se chute for igual ao número secreto
-     if (chute == numeroSecreto) {
-        break;
-     } else {
-        if (chute > numeroSecreto) {
-            alert(`O número secreto é menor que ${chute}`);
-        } else {
-            alert(`O número secreto é maior que ${chute}`);
-        }
-        //tentativas = tentativas + 1; 
-        tentativas++;
-     }
+function exibirTextoNaTela(tag, texto){
+    let campo = document.querySelector(tag)
+    campo.innerHTML = texto;
 }
 
-let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa'
-   alert(`Isso ai! Você descobriu o número secreto ${numeroSecreto} com ${tentativas} ${palavraTentativa}`);
+exibirTextoNaTela ('h1', 'jogo do numero secreto');
+exibirTextoNaTela ('p' , 'escolha um numero de 1 a 11');
 
+function verificarChute() {
+    let chute = querySelector('input').value
+
+    console.log(chute == numeroSecreto);
+    // o uso de um = eh para atribuir um valor enquanto o uso de dois eh para comparação 
+}
+
+function gerarNumeroAleatorio() {
+    return parseInt(Math.random () *10 + 1);
+}
